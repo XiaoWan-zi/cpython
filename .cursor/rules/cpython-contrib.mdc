@@ -1,0 +1,12 @@
+---
+description: CPython fork workflow constraints; use with karpathy-guidelines for stdlib and interpreter work.
+alwaysApply: true
+---
+
+# CPython 工作区（个人 fork）
+
+- 只改与任务相关的文件；`Lib/**/*.py` 通常保存后直接 `./python` 测试；`Python/`、`Objects/`、`Modules/` 等 C 代码改动后需 `make`。
+- 未明确要求不要 `git commit`、不要 push 到 `python/cpython` 上游、不要 force push。
+- 改 stdlib 时匹配现有风格与测试习惯；用 `./python -m test ...` 或相关子集验证。
+- 3.15+ 特性（如 `lazy import`）先确认当前分支是否包含该语言特性。
+- 向 `python/cpython` 提 PR 时不要包含 `.cursor/` 或 `CLAUDE.md`；这些配置仅保留在本 fork。
